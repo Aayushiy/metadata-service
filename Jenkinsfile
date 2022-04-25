@@ -31,8 +31,8 @@ pipeline {
                     docker push "${DOCKER_IMAGE_NAME}":"$BUILD_NUMBER"
                     docker push "${DOCKER_IMAGE_NAME}":latest
                     echo "cleaning up the local images ......."
-                    docker rmi "${DOCKER_IMAGE_NAME}":"$BUILD_NUMBER"
-                    docker rmi "${DOCKER_IMAGE_NAME}":latest
+                    docker rmi -f "${DOCKER_IMAGE_NAME}":"$BUILD_NUMBER"
+                    docker rmi -f "${DOCKER_IMAGE_NAME}":latest
                 '''
             }
         }
