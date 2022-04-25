@@ -41,7 +41,7 @@ pipeline {
                 sh '''
                     echo "deploying the application ........"
                     docker rm -f meta-data || true
-                    docker run -d -p 4444:4444 --name meta-data "${DOCKER_IMAGE_NAME}":latest
+                    docker run -d -p 4444:8080 --name meta-data "${DOCKER_IMAGE_NAME}":latest
                 '''
             }
         }
